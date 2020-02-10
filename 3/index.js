@@ -1,6 +1,6 @@
-function cashBox(cashBillsQuery) {
+function cashBox(cashBillsQuery, price = 25) {
     console.log('cashBox() called with:', cashBillsQuery)
-    const price = 25
+    // const price = 25
     let cashSum = 0
     let availableBills = []
     let unusedBills = []
@@ -56,7 +56,7 @@ function cashBox(cashBillsQuery) {
 }
 
 
-// make some tests
+// make some tests with default price 25
 check(cashBox([25, 25, 50]), true)
 check(cashBox([25, 50, 25]), true)
 check(cashBox([25, 50, 50]), false)
@@ -79,6 +79,30 @@ check(cashBox([25, 25, 50, 25, 25, 50, 50]), true)
 check(cashBox([25, 25, 50, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50]), true)
 check(cashBox([25, 25, 50, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 100, 100, 500]), false)
 check(cashBox([25, 25, 50, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 25, 100, 100, 100, 500]), true)
+
+// make some tests with price 10
+check(cashBox([10, 10, 20], 10), true)
+check(cashBox([10, 20, 10], 10), true)
+check(cashBox([10, 20, 20], 10), false)
+check(cashBox([20, 10, 10], 10), false)
+check(cashBox([10, 20, 10, 10, 10, 40], 10), true)
+check(cashBox([10, 20, 10, 10, 40], 10), true)
+check(cashBox([10, 40], 10), false)
+check(cashBox([10, 10, 40], 10), false)
+check(cashBox([10, 10, 10, 40], 10), true)
+check(cashBox([10, 10, 20, 20, 40], 10), false)
+check(cashBox([10, 10, 20, 20, 40], 10), false)
+check(cashBox([10, 10, 20, 20, 40], 10), false)
+check(cashBox([10, 20, 10, 40], 10), true)
+check(cashBox([10, 20, 10, 40, 50], 10), true)
+check(cashBox([10, 20, 10, 40, 50, 60], 10), true)
+check(cashBox([10, 10, 20, 10, 10, 40], 10), true)
+check(cashBox([10, 10, 20, 10, 10, 50], 10), true)
+check(cashBox([10, 10, 20, 10, 10, 10, 60], 10), true)
+check(cashBox([10, 10, 20, 10, 10, 20, 50], 10), true)
+check(cashBox([10, 10, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 20, 20], 10), true)
+check(cashBox([10, 10, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 20, 20, 20, 40, 40, 200], 10), false)
+check(cashBox([10, 10, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 20, 20, 20, 10, 40, 40, 40, 200], 10), true)
 
 
 // testing function
