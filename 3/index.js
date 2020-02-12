@@ -107,6 +107,9 @@ check(cashBox([10, 10, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 20, 20], 10), tru
 check(cashBox([10, 10, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 20, 20, 20, 40, 40, 200], 10), false)
 check(cashBox([10, 10, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 20, 20, 20, 10, 40, 40, 40, 200], 10), true)
 
+// make some tests with price 12
+check(cashBox([48, 11, 44, 52], 12), true)
+
 
 // testing function
 function check(expression, value) {
